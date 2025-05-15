@@ -46,7 +46,7 @@
 
 2. Запуск скрипта
     ```cmd
-    python src\main.py ..\csv_docs\data1.csv ..\csv_docs\data2.csv ..\csv_docs\data3.csv --report
+    python src\main.py csv_docs\data1.csv csv_docs\data2.csv csv_docs\data3.csv --report payout
     ```
 
 3. Запуск тестов
