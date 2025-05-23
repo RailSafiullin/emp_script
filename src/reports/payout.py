@@ -2,6 +2,7 @@ from typing import List, Tuple
 from models.employee import Employee
 from reports.base import BaseReport
 
+
 class PayoutReport(BaseReport):
     def __init__(self, sort_keys: List[Tuple[str, bool]] = None):
         # Default sorting: department (asc), payout (desc), name (asc)
@@ -24,9 +25,14 @@ class PayoutReport(BaseReport):
         if not data:
             print("No data to report.")
             return
-        
-        group_by_department = ("department", False) in self.sort_keys or ("department", True) in self.sort_keys
-        header = f"{'Department':<15} {'Name':<20} {'Hours':<8} {'Rate':<9} {'Payout':<5}"
+
+        group_by_department = ("department", False) in self.sort_keys or (
+            "department",
+            True,
+        ) in self.sort_keys
+        header = (
+            f"{'Department':<15} {'Name':<20} {'Hours':<8} {'Rate':<9} {'Payout':<5}"
+        )
         print(header)
         print("-" * len(header))
 
@@ -39,7 +45,7 @@ class PayoutReport(BaseReport):
                     print(f"{current_dept}")
                     print("-" * len(header))
                     last_dept = current_dept
-                dept = ""*15
+                dept = "" * 15
             else:
                 dept = current_dept
             print(
